@@ -2,14 +2,14 @@
 
 ![alt tag](brat-overtaking.png)
 
-The purpose of this library is to showcase a framework for multi-step ahead planning using pure input control (see [Braitenberg vehicles](https://en.wikipedia.org/wiki/Braitenberg_vehicle)). The navigation problem is broken down into several unique closed-loop input controllers, called Tasks. Each Task produces a unique control behaviour (go straight, turn left/right 90 degrees) in response to a [Disturbance](https://en.wikipedia.org/wiki/Errors_and_residuals) (an obstacle or target), which determines a Task's duration. A supervising module, called the Configurator, can simulate sequences of Tasks at runtime in game engine [Box2D](https://github.com/glafratta/box2d), retain their outcomes in a cognitive map, which can be searched to extract plans. The physics simulation represents the robot's [Core Knowledge](https://www.harvardlds.org/wp-content/uploads/2017/01/SpelkeKinzler07-1.pdf) (Spelke, 2007).
+The navigation problem is broken down into several unique closed-loop input controllers, called Tasks. Each Task produces a unique control behaviour (go straight, turn left/right 90 degrees) in response to a [Disturbance](https://en.wikipedia.org/wiki/Errors_and_residuals) (an obstacle or target), which determines a Task's duration. A supervising module, called the Configurator, can simulate sequences of Tasks at runtime in game engine [Box2D](https://github.com/glafratta/box2d), retain their outcomes in a cognitive map, which can be searched to extract plans. The physics simulation represents the robot's [Core Knowledge](https://www.harvardlds.org/wp-content/uploads/2017/01/SpelkeKinzler07-1.pdf) (Spelke, 2007).
 
-Note this is a fork of the orig Bratmobile repo: https://github.com/glafratta/bratmobile
+Note this is a fork of the orig repo: https://github.com/glafratta/bratmobile
 
 ## Features:
 * Hybrid state-space representation where states are Tasks focused on a specific object
   
-* Mapless navigation: robot is ready to go as is, no need for global maps/SLAM
+* Landmark navigation: robot is ready to go as is, no need for global maps/SLAM
 
 * Plans are made up of multiple Tasks (object-focused instructions), not trajectories
 
@@ -66,8 +66,8 @@ Demo prefixes:
 
 Demos:
 
-* `sudo ./*targetless` : these programs demonstrates planning over a 1m distance horizon for a control goal that is not a target location but rather an objective to drive straight for the longest time with the least amount of disturbances
-* `sudo ./*target`: these program demonstrates target seeking behaviour, where the target is imaginary and located at x=1.0m, y=0m.
+* `./*targetless` : these programs demonstrates planning over a 1m distance horizon for a control goal that is not a target location but rather an objective to drive straight for the longest time with the least amount of disturbances
+* `./*target`: these program demonstrates target seeking behaviour, where the target is imaginary and located at x=1.0m, y=0m.
 
 ### Unit tests 
 `ctest`
